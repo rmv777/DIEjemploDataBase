@@ -1,0 +1,15 @@
+CREATE SCHEMA IF NOT EXISTS `mensajeria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `mensajeria` ;
+
+-- -----------------------------------------------------
+-- Table `mensajeria`.`persona`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mensajeria`.`persona` (
+  `dni` VARCHAR(9) NOT NULL,
+  `nombre` VARCHAR(45) NULL DEFAULT NULL,
+  `apellido1` VARCHAR(45) NULL DEFAULT NULL,
+  `apellido2` VARCHAR(45) NULL DEFAULT NULL,
+  `domicilio` VARCHAR(45) NULL DEFAULT NULL,
+  `genero` VARCHAR(45) NULL DEFAULT NULL,
+  `aficion` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`dni`))

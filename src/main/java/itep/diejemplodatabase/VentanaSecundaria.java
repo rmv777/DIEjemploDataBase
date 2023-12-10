@@ -15,10 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *GitHub
- * @author jarrito
- */
+
 public class VentanaSecundaria extends javax.swing.JFrame {
 
     ArrayList<Persona> listaPersonas = new ArrayList();

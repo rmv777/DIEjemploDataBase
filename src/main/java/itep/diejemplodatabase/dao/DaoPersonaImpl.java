@@ -16,7 +16,7 @@ public class DaoPersonaImpl implements DaoPersona {
         Connection myCon = null;
         String url = "jdbc:mysql://localhost:3306/mensajeria?autoReconnect=true&useSSL=false";
         String user = "root";
-        String password = "root";
+        String password = "";
         try {
             myCon = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {

@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -666,13 +667,19 @@ public class VentanaSecundaria extends javax.swing.JFrame {
         daop.modificarPersona(p);
     }//GEN-LAST:event_actualizarDatos
     private void buscarPersona(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPersona
+        
+        
         DaoPersonaImpl daop = new DaoPersonaImpl();
         String dni = jTextDniActualizar.getText();
-        Persona persona = daop.leerPersona(dni);
+        if("".equals(dni)){
+            JFrame frame = new JFrame("Ejemplo de Ventana Modal");
+                JOptionPane.showMessageDialog(frame, "Inserte un DNI", "Información", JOptionPane.INFORMATION_MESSAGE);       
+        }
+        else {Persona persona = daop.leerPersona(dni);
         jTextNombreActualizar.setText(persona.getNombre());
         jTextApellido1Actualizar.setText(persona.getApellido1());
         jTextApellido2Actualizar.setText(persona.getApellido2());
-        jTextDomicilioActualizar.setText(persona.getDomicilio());
+        jTextDomicilioActualizar.setText(persona.getDomicilio());  }
     }//GEN-LAST:event_buscarPersona
     private void grabarPersona(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grabarPersona
         // Rellenamos los campos del tab Datos de Persona

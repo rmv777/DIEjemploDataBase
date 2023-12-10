@@ -661,10 +661,17 @@ public class VentanaSecundaria extends javax.swing.JFrame {
     }//GEN-LAST:event_personaActualizar
     private void actualizarDatos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarDatos
         //Recoger los datos de las cajascrear persona y pasarla a
+        String dni = jTextDniActualizar.getText();
+        if("".equals(dni)){
+            JFrame frame = new JFrame("Ejemplo de Ventana Modal");
+                JOptionPane.showMessageDialog(frame, "Inserte un DNI", "Información", JOptionPane.INFORMATION_MESSAGE);       
+        }
+        else {
         DaoPersonaImpl daop = new DaoPersonaImpl();
         Persona p = new Persona(jTextDniActualizar.getText(), jTextNombreActualizar.getText(), jTextApellido1Actualizar.getText(), jTextApellido2Actualizar.getText(),
                 jTextDomicilioActualizar.getText(), (String) jComboGeneroActualizar.getSelectedItem(), jListAficionesActualizar.getSelectedValue());
         daop.modificarPersona(p);
+        }
     }//GEN-LAST:event_actualizarDatos
     private void buscarPersona(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPersona
         
@@ -683,6 +690,12 @@ public class VentanaSecundaria extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarPersona
     private void grabarPersona(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grabarPersona
         // Rellenamos los campos del tab Datos de Persona
+        String dni = jTextDniActualizar.getText();
+        if("".equals(dni)){
+            JFrame frame = new JFrame("Ejemplo de Ventana Modal");
+                JOptionPane.showMessageDialog(frame, "Inserte un DNI", "Información", JOptionPane.INFORMATION_MESSAGE);       
+        }
+        else {
         jLabelDni.setText(jTextDni.getText());
         jLabelNombre.setText(jTextNombre.getText());
         jLabelApellido1.setText(jTextApellido1.getText());
@@ -699,7 +712,7 @@ public class VentanaSecundaria extends javax.swing.JFrame {
         daop.guardarPersona(p);
         //Pasar a la ventana de etiquetas de la nueva Persona
         jTabbedPane1.setSelectedIndex(1);
-
+        }
     }//GEN-LAST:event_grabarPersona
     private void cambioTab(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cambioTab
         if (jTabbedPane1.getSelectedIndex() == 2) {
@@ -709,6 +722,12 @@ public class VentanaSecundaria extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cambioTab
     private void borrarPersona(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPersona
+        String dni = jTextDniActualizar.getText();
+        if("".equals(dni)){
+            JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Inserte un DNI", "Información", JOptionPane.INFORMATION_MESSAGE);       
+        }
+        else {
         DaoPersonaImpl daop = new DaoPersonaImpl();
         Persona p = new Persona(jTextDniActualizar.getText(), jTextNombreActualizar.getText(), jTextApellido1Actualizar.getText(), jTextApellido2Actualizar.getText(),
                 jTextDomicilioActualizar.getText(), (String) jComboGeneroActualizar.getSelectedItem(), jListAficionesActualizar.getSelectedValue());
@@ -717,6 +736,7 @@ public class VentanaSecundaria extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No se pudo borrar la persona", "Error", JOptionPane.ERROR_MESSAGE);
         else
             JOptionPane.showMessageDialog(this, "La persona se borró", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_borrarPersona
     private void borrarPersonaTabla(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPersonaTabla
         int personaSeleccionada = jTablePersonas.getSelectedRow();
